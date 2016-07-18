@@ -1,0 +1,56 @@
+API endpoints for todo
+
+Use Case	Verb		endpoints					parameters				returns
+
+Create list	POST		/api/v1/lists				list_name	 			list_id,list_name
+delete list DELETE 		/api/vi/lists/{}			no parameters			204
+Create item	POST		/api/vi/lists/{}/items		item value				item_id
+Delete item	DELETE 		/api/v1/lists/{}/items/{}	no parameters			204
+Update list PUT			/api/v1/lists/{}			list_name				list_name
+Update item PUT			/api/v1/lists/{}/items/{}	value,status		    JSON item
+													is_done
+
+All lists	GET			/api/v1/lists 				no parameters			JSON list id,name
+
+All items 
+in a list 	GET			/api/v1/lists{}				no parameters			JSON struct
+
+
+
+ITEMS PENDING
+All pending items 
+in a list 	GET			/api/v1/lists{}				status=PENDING			JSON struct
+
+ITEMS COMPLETE
+All done items 
+in a list 	GET			/api/v1/lists{}				status=COMPLETE			JSON struct
+
+
+upload image
+to list 	POST		/api/v1/lists{}/image		no parameters			204
+upload image 
+to items 	POST		/api/v1/lists{}/item/{}/image						204
+
+DB structure
+
+lists
+
+id
+name
+
+items
+
+id
+list_id
+item
+status
+
+
+images
+
+id
+item_id
+path
+
+
+
